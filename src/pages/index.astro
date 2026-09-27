@@ -1,5 +1,12 @@
 ---
 import BaseLayout from "../layouts/BaseLayout.astro";
+import Greetings from "../components/Greetings.tsx";
 ---
 
-<BaseLayout pageTitle="Home Page" />
+<BaseLayout pageTitle="Home Page">
+   <h2>My awesome blog subtitle</h2>
+   <Greetings
+      client:load
+      messages={["Hello", "Hi", "Hey", "Howdy", "Greetings"]}
+   />
+</BaseLayout>
