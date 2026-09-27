@@ -1,0 +1,17 @@
+---
+const { title, description, pubDate, tags, image } = Astro.props;
+---
+
+<div class="blog-post-card">
+   <img src={image.url} alt={image.alt} width="300" class="blog-post-image" />
+   <div class="blog-post-content">
+      <h2 class="blog-post-title">{title}</h2>
+      <p class="blog-post-description">{description}</p>
+      <div class="blog-post-meta">
+         <p class="blog-post-pub-date">
+            Published on: {pubDate.toString().slice(0, 10)}
+         </p>
+         <p class="blog-post-tags">Tags: {tags.join(", ")}</p>
+      </div>
+   </div>
+</div>

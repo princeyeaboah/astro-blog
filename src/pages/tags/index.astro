@@ -1,0 +1,26 @@
+---
+import BaseLayout from "../../layouts/BaseLayout.astro";
+
+const allTags = Object.values(
+   import.meta.glob("../posts/*.md", { eager: true }),
+);
+
+const tags = [
+   ...new Set(allTags.map((tag: any) => tag.frontmatter.tags).flat()),
+];
+const pageTitle = "Tags Index";
+---
+
+<BaseLayout pageTitle={pageTitle}>
+   <ul class="tag-list">
+      {
+         tags.map((tag: string) => (
+            <li class="tag-list-item">
+               <a href={`/tags/${tag.toLowerCase().replace(/ /g, "-")}`}>
+                  {tag}
+               </a>
+            </li>
+         ))
+      }
+   </ul>
+</BaseLayout>
